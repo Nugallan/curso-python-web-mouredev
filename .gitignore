@@ -4,3 +4,4 @@ __pycache__/
 .states
 *.db
 *.py[cod]
+.venv/

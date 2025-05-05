@@ -18,14 +18,28 @@ def footer() -> rx.Component:
             is_external=True,
             font_size=Size.MEDIUM.value
         ),
-        rx.text(
-            "BUILDING SOFTWARE WITH FROM GALICIA TO THE WORLD.",
-            font_size=Size.MEDIUM.value,
-            margin_top=Size.ZERO.value
+        rx.link(
+            rx.hstack(
+                rx.image(
+                    src="icons/github.svg",
+                    height=Size.LARGE.value,
+                    width=Size.LARGE.value,
+                    alt="Icono de GitHub"
+                ),
+                rx.text(
+                    "BUILDING SOFTWARE WITH FROM GALICIA TO THE WORLD.",
+                    font_size=Size.MEDIUM.value,
+                    margin_top=Size.ZERO.value
+                ),
+            ),
+            href=const.REPO_URL,
+            is_external=True,
         ),
+        
         margin_bottom=Size.BIG.value,
         padding_bottom=Size.BIG.value,
         padding_x=Size.BIG.value,
+        spacing="0",
         color=TextColor.FOOTER.value,
         align_items="center"
     )

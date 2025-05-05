@@ -1,7 +1,7 @@
 # Botón especial para nuestra app
 import reflex as rx
 import link_bio.styles.styles as styles # Importamos el archivo de estilos
-import link_bio.styles.colors as Color
+from link_bio.styles.colors import Color
 from link_bio.styles.styles import Size as Size
 
 def link_button(title: str, body: str, image: str, url: str) -> rx.Component: # los argumentos 'title' y 'body' para personalizar cada button (Uno contendrá texto "Twitch", otro "YouTube", etc)
@@ -23,9 +23,11 @@ def link_button(title: str, body: str, image: str, url: str) -> rx.Component: # 
                 padding_y=Size.SMALL.value,
                 padding_right=Size.SMALL.value
                ),
+               align="center",
                width="100%"
            )
         ),
+        background_color=Color.PRIMARY.value,
         href=url, # link para enlace y tiene como propiedad 'url
         is_external=True, # abre el enlace en una pestaña nueva
         width="100%",
