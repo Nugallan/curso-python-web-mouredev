@@ -1,7 +1,8 @@
 import reflex as rx # type: ignore
-from link_bio.pages.index import index # Importamos la página 'index' de index.py
 import link_bio.styles.styles as styles
 import link_bio.constants as const
+from link_bio.pages.index import index # Importamos la página 'index' de index.py
+from link_bio.pages.courses import courses
 
 # 'app': componente que va a generar una aplicación con Reflex
 app = rx.App(

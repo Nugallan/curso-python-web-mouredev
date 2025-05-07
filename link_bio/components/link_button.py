@@ -4,7 +4,7 @@ import link_bio.styles.styles as styles # Importamos el archivo de estilos
 from link_bio.styles.colors import Color
 from link_bio.styles.styles import Size as Size
 
-def link_button(title: str, body: str, image: str, url: str) -> rx.Component: # los argumentos 'title' y 'body' para personalizar cada button (Uno contendrá texto "Twitch", otro "YouTube", etc)
+def link_button(title: str, body: str, image: str, url: str, is_external=True) -> rx.Component: # los argumentos 'title' y 'body' para personalizar cada button (Uno contendrá texto "Twitch", otro "YouTube", etc)
     return rx.link( # 'link' para enlaces web
         rx.button(
            rx.hstack(
@@ -29,7 +29,7 @@ def link_button(title: str, body: str, image: str, url: str) -> rx.Component: # 
         ),
         background_color=Color.PRIMARY.value,
         href=url, # link para enlace y tiene como propiedad 'url
-        is_external=True, # abre el enlace en una pestaña nueva
+        is_external=is_external, # abre el enlace en una pestaña nueva
         width="100%",
         text_decoration="none"
     )

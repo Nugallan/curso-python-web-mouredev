@@ -7,7 +7,7 @@ from link_bio.styles.colors import TextColor as TextColor
 def footer() -> rx.Component:
     return rx.vstack(
         rx.image(
-            src="logo_symbol.svg",
+            src="/logo_symbol.svg",
             width=Size.VERY_BIG.value,
             height=Size.VERY_BIG.value,
             alt="Logotipo de MoureDev. Una \"eme \" entre llaves",
@@ -21,7 +21,7 @@ def footer() -> rx.Component:
         rx.link(
             rx.hstack(
                 rx.image(
-                    src="icons/github.svg",
+                    src="/icons/github.svg",
                     height=Size.LARGE.value,
                     width=Size.LARGE.value,
                     alt="Icono de GitHub"

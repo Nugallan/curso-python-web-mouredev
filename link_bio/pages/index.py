@@ -4,7 +4,7 @@ import link_bio.constants as const
 from link_bio.components.navbar import navbar # Importamos el componente de la barra de navegación
 from link_bio.components.footer import footer
 from link_bio.views.header import header
-from link_bio.views.links import links
+from link_bio.views.index_links import index_links
 from link_bio.views.sponsors import sponsors
 import link_bio.styles.styles as styles # Importamos el archivo de estilos como 'styles'
 from link_bio.styles.styles import Size # Importamos la clase 'Size' como 'Size' y evitar escribir 'styles.Size' siempre
@@ -22,7 +22,7 @@ def index() -> rx.Component:
         rx.center(
             rx.vstack(        
                 header(),
-                links(),
+                index_links(),
                 sponsors(),
                 max_width=styles.MAX_WIDTH, # uso la constante 'MAX_WIDTH' del archivo de styles.py
                 width="100%",
