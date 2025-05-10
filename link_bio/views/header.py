@@ -31,34 +31,39 @@ def header(details = True) -> rx.Component: # Añadimos 'details = True' para qu
                 ),
                 rx.hstack(
                     link_icon(
-                        "/icons/twitch.svg",
+                        "/icons/github.svg",
                         const.GITHUB_URL,
-                        "Twitch",
+                        "GitHub"
                     ),
                     link_icon(
-                        "/icons/twitch.svg",
+                        "/icons/x.svg",
                         const.TWITTER_X_URL,
-                        "Twitter",
+                        "Twitter/X"
                     ),
                     link_icon(
-                        "/icons/twitch.svg",
+                        "/icons/instagram.svg",
                         const.INSTAGRAM_URL,
-                        "Instagram",
+                        "Instagram"
                     ),
                     link_icon(
-                        "/icons/twitch.svg",
+                        "/icons/tiktok.svg",
                         const.TIKTOK_URL,
-                        "TikTok",
+                        "TikTok"
                     ),
                     link_icon(
-                        "/icons/twitch.svg",
+                        "/icons/facebook.svg",
                         const.FACEBOOK_URL,
-                        "Facebook",
+                        "Facebook"
                     ),
+                    # link_icon(
+                    #     "/icons/spotify.svg",
+                    #     const.SPOTIFY_URL,
+                    #     "Spotify"
+                    # ),
                     link_icon(
-                        "/icons/twitch.svg",
+                        "/icons/linkedin.svg",
                         const.LINKEDIN_URL,
-                        "LinkedIn",
+                        "LinkedIn"
                     ),
                     spacing=Spacing.DEFAULT.value
                 ),

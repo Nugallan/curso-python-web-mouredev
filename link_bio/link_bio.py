@@ -4,6 +4,10 @@ import link_bio.constants as const
 from link_bio.pages.index import index # Importamos la página 'index' de index.py
 from link_bio.pages.courses import courses
 
+# Manejo de estados
+class State(rx.State):
+    "Define your app state here."
+
 # 'app': componente que va a generar una aplicación con Reflex
 app = rx.App(
     stylesheets=styles.STYLESHEETS, # cargamos las fuentes que queremos

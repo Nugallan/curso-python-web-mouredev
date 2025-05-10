@@ -1,8 +1,9 @@
 import reflex as rx
+import link_bio.constants as const
 from link_bio.routes import Route
-import link_bio.styles.styles as styles
-from link_bio.styles.styles import Size as Size
+from link_bio.styles.styles import Size
 from link_bio.styles.colors import Color
+# from link_bio.components.ant_components import float_button # importamos el FloatButton de 'ant_components.py'
 
 def navbar() -> rx.Component:
     # Componente de barra de navegación con 'hstack' (Horizontal Stack)
@@ -14,6 +15,10 @@ def navbar() -> rx.Component:
             ),
             href=Route.INDEX.value      
         ),
+#     float_button(
+#             icon = rx.image(src="/icons/donate.svg"),
+#             href = const.COFFEE_URL
+#        ),
         position="sticky",
         bg=Color.CONTENT.value,
         padding_x=Size.BIG.value,

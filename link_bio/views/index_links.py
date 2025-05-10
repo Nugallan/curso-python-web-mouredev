@@ -47,10 +47,10 @@ def index_links() -> rx.Component:
 
         title("Contacto"),
         link_button(
-         "MyPublicInbox",
-         "Respuesta rápida y con preferencia",
-         "/icons/checkmail.svg",
-         const.MYPUBLICINBOX_URL
+            "MyPublicInbox",
+            "Respuesta rápida y con preferencia",
+            "/icons/checkemail.svg",
+            const.MYPUBLICINBOX_URL
         ),
         link_button(
          "Email",
