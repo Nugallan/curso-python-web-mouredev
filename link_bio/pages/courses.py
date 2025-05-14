@@ -9,6 +9,7 @@ from link_bio.views.courses_links import courses_links
 from link_bio.views.sponsors import sponsors
 import link_bio.styles.styles as styles # Importamos el archivo de estilos como 'styles'
 from link_bio.styles.styles import Size # Importamos la clase 'Size' como 'Size' y evitar escribir 'styles.Size' siempre
+from link_bio.state.PageState import PageState
 
 @rx.page( # esto convierte todo el código siguiente en un página
     route=Route.COURSES.value, # ruta de la página
@@ -16,6 +17,7 @@ from link_bio.styles.styles import Size # Importamos la clase 'Size' como 'Size'
     description=utils.courses_description,
     image=utils.preview,
     meta=utils.courses_meta,
+    on_load=PageState.check_live # cuando la página esté cargada, se ejecutará el método 'check_live'
 )
 def courses() -> rx.Component:
     return rx.box( # 'box' es un contenedor genérico para agrupar otros componentes        
@@ -23,7 +25,10 @@ def courses() -> rx.Component:
         navbar(),
         rx.center(
             rx.vstack(        
-                header(),
+                header(
+                    False,
+                    PageState.is_live
+                ),
                 courses_links(),
                 sponsors(),
                 max_width=styles.MAX_WIDTH, # uso la constante 'MAX_WIDTH' del archivo de styles.py

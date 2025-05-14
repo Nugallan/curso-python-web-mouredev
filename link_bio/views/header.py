@@ -6,10 +6,19 @@ from link_bio.styles.colors import Color, TextColor
 import link_bio.constants as const
 import datetime
 
-def header(details = True) -> rx.Component: # Añadimos 'details = True' para que por defecto aparezcan los detalles
+def header(details = True, live=False) -> rx.Component: # Añadimos 'details = True' para que por defecto aparezcan los detalles
     return rx.vstack(
         rx.hstack(
             rx.avatar(
+                rx.cond(
+                    live, # si live es True entonces se muestra el badge
+                    rx.badge(
+                        box_size=Size.MEDIUM.value,
+                        bg= Color.PURPLE.value,
+                        border_color=Color.PURPLE.value,
+                    ),
+                ),
+                
                 name="Brais Moure",
                 size="8", #'size' sólo acepta numeración, nada de tallas 'xl' y demás
                 src="/avatar.webp",

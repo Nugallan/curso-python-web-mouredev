@@ -3,10 +3,13 @@ import link_bio.styles.styles as styles
 import link_bio.constants as const
 from link_bio.pages.index import index # Importamos la página 'index' de index.py
 from link_bio.pages.courses import courses
+from fastapi import FastAPI # Importamos la API de FastAPI para trabajar con APIs
+from link_bio.api.api import repo, live
 
-# Manejo de estados
-class State(rx.State):
-    "Define your app state here."
+# Creación de instancia de FastAPI
+fastapi_app = FastAPI()
+fastapi_app.add_api_route("/repo", repo) # añade la ruta '/repo' a la API
+fastapi_app.add_api_route("/live/{user}", live)
 
 # 'app': componente que va a generar una aplicación con Reflex
 app = rx.App(
@@ -22,7 +25,9 @@ app = rx.App(
                 function gtag(){{dataLayer.push(arguments);}}
                 gtag('js', new Date());
                 gtag('config', '{const.G_TAG}');
-            """
-        ),
+            """),
     ],
+    api_transformer=fastapi_app, # Asignamos la instancia de la API a nuestra app
 )
+
+# app.api.add_api_route("/hello", hello) # Deprecated (obsoleto)
