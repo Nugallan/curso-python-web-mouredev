@@ -1,0 +1,10 @@
+ /* '@keyframes' para realizar modificaciones y animaciones */ 
+@keyframes blinker {
+    50% {
+        opacity: 0; /* En la mitad de la animación, la opacidad es 0 */
+    }
+}
+
+.blink {
+    animation: blinker 1.5s linear infinite;
+}

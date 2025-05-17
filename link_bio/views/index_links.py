@@ -3,9 +3,9 @@ import link_bio.constants as const
 from link_bio.routes import Route
 from link_bio.components.link_button import link_button # Importamos el componente 'link_button'
 from link_bio.components.title import title 
-from link_bio.styles.colors import Color
+from link_bio.styles.styles import Color, Spacing
 
-def index_links() -> rx.Component:
+def index_links(featured: []) -> rx.Component:
     return rx.vstack(
         title("Comunidad"),
         link_button(
@@ -13,7 +13,8 @@ def index_links() -> rx.Component:
          "Consulta mis tutoriales ppara aprender programación",
          "/icons/code.svg",
          Route.COURSES.value,
-         is_external=False
+         False,
+         Color.SECONDARY.value
         ),
         link_button("Twitch",
          "Directos de lunes a viernes",
@@ -31,18 +32,53 @@ def index_links() -> rx.Component:
          "Tutoriales semanales",
          "/icons/youtube.svg",
          const.YOUTUBE_SECONDARY_URL),
-
+        
+        #rx.cond(
+            #len(featured) > 0,
+            #rx.vstack(
+                #title("Destacado"),
+                #rx.flex(
+                    #rx.foreach(
+                        #featured,
+                        
+                    #),
+                    #flex_direction=["column", "row"],
+                    #spacing=Spacing.DEFAULT.value
+                #),
+                #spacing=Spacing.DEFAULT.value
+            #)
+        #),
+        
+        title("Recursos y más"),
         link_button(
-         "MoureDev",
-         "Mi sitio web",
-         "/icons/logo_symbol.svg",
-         const.MOUREDEV_URL
+            "Git y GitHub desde cero",
+            "Aquí puedes comprar mi libro en formato físico y eBook",
+            "/icons/git.svg",
+            const.BOOK_URL
         ),
         link_button(
-         "Invítame a un café",
-         "¿Quieres ayudarme a que siga creando contenido?",
-         "/icons/coffee.svg",
-         const.COFFEE_URL
+            "Libros recomendados",
+            "Mi listado de libros sobre programación, ciencia y tecnología",
+            "/icons/book.svg",
+            const.BOOKS_URL
+        ),
+        link_button(
+            "Mi setup",
+            "Listado con todos los elementos que uso en mi trabajo",
+            "/icons/setup.svg",
+            const.SETUP_URL
+        ),
+        link_button(
+            "MoureDev",
+            "Mi sitio web",
+            "/icons/logo_symbol.svg",
+            const.MOUREDEV_URL
+        ),
+        link_button(
+            "Invítame a un café",
+            "¿Quieres ayudarme a que siga creando contenido?",
+            "/icons/coffee.svg",
+            const.COFFEE_URL
         ),
 
         title("Contacto"),
@@ -53,10 +89,10 @@ def index_links() -> rx.Component:
             const.MYPUBLICINBOX_URL
         ),
         link_button(
-         "Email",
-         const.EMAIL,
-         "/icons/email.svg",
-         f"mailto:{const.EMAIL}"
+            "Email",
+            const.EMAIL,
+            "/icons/email.svg",
+            f"mailto:{const.EMAIL}"
         ),
         
         width="100%",

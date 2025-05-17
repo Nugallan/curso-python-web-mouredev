@@ -11,6 +11,7 @@ STYLESHEETS = {
     # Buscando en google "load google font in css" en la API de Google fonts nos indica la URL para las fuentes
     "https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap", # cargamos las 2 fuentes que queremos por 'wght@300;500&display=swap'
     "https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap"
+    "/css/styles.css" # cargamos el archivo css
 }
 
 # Sizes (tamaños)

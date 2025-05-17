@@ -17,7 +17,7 @@ from link_bio.state.PageState import PageState
     description=utils.index_description,
     image=utils.preview,
     meta=utils.index_meta,
-    on_load=PageState.check_live # cuando la página esté cargada, se ejecutará el método 'check_live'
+    on_load=[PageState.check_live, PageState.featured_links] # cuando la página esté cargada, se ejecutará el método 'check_live'
 )
 
 def index() -> rx.Component:
@@ -27,9 +27,10 @@ def index() -> rx.Component:
         rx.center(
             rx.vstack(                
                 header(
-                    live=PageState.is_live
+                    live=PageState.is_live,
+                    live_title=PageState.live_title
                 ),
-                index_links(),
+                index_links(PageState.featured_info),
                 sponsors(),
                 max_width=styles.MAX_WIDTH, # uso la constante 'MAX_WIDTH' del archivo de styles.py
                 width="100%",
