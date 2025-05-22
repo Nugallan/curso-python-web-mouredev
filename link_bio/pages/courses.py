@@ -25,10 +25,7 @@ def courses() -> rx.Component:
         navbar(),
         rx.center(
             rx.vstack(        
-                header(
-                    False,
-                    PageState.is_live
-                ),
+                header(False),
                 courses_links(),
                 sponsors(),
                 max_width=styles.MAX_WIDTH, # uso la constante 'MAX_WIDTH' del archivo de styles.py

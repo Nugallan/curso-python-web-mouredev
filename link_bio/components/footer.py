@@ -1,20 +1,31 @@
 import reflex as rx
 import datetime
 import link_bio.constants as const
-from link_bio.styles.styles import Size as Size
-from link_bio.styles.colors import TextColor as TextColor
+from link_bio.styles.styles import Size, Spacing
+from link_bio.styles.colors import Color, TextColor
+# from link_bio.components.ant_components import float_button
+
 
 def footer() -> rx.Component:
     return rx.vstack(
         rx.image(
             src="/logo_symbol.svg",
-            width=Size.VERY_BIG.value,
             height=Size.VERY_BIG.value,
-            alt="Logotipo de MoureDev. Una \"eme \" entre llaves",
+            width=Size.VERY_BIG.value,
+            alt="Logotipo de MoureDev. Una \"eme\" entre llaves."
         ),
         rx.link(
-            f"2014-{datetime.date.today().year} MoureDev by Brais Moure v3.",
-            href="https://mouredev.com",
+            rx.box(
+                f"© 2014-{datetime.date.today().year} ",
+                rx.text(
+                    "MoureDev by Brais Moure",
+                    as_="span",
+                    color=Color.PRIMARY.value
+                ),
+                " v5.",
+                padding_top=Size.DEFAULT.value
+            ),
+            href=const.MOUREDEV_URL,
             is_external=True,
             font_size=Size.MEDIUM.value
         ),
@@ -24,22 +35,43 @@ def footer() -> rx.Component:
                     src="/icons/github.svg",
                     height=Size.LARGE.value,
                     width=Size.LARGE.value,
-                    alt="Icono de GitHub"
+                    alt="Logo GitHub"
                 ),
                 rx.text(
-                    "BUILDING SOFTWARE WITH FROM GALICIA TO THE WORLD.",
+                    "Building software with ♥ from Galicia to the world.",
                     font_size=Size.MEDIUM.value,
                     margin_top=Size.ZERO.value
-                ),
+                )
             ),
             href=const.REPO_URL,
-            is_external=True,
+            is_external=True
         ),
-        
-        margin_bottom=Size.BIG.value,
-        padding_bottom=Size.BIG.value,
+        rx.text(
+            "Con el apoyo de",
+            rx.image(
+                src=f"/raiola_networks.svg",
+                on_click=rx.redirect(
+                    const.RAIOLA_NETWORKS_URL,
+                    is_external=True
+                ),
+                width="200px",
+                height="100%",
+                cursor="pointer",
+                padding_x=Size.MEDIUM.value,
+                alt="Logo Raiola Networks"
+            ),
+            font_size=Size.MEDIUM.value,
+            display="flex",
+            align_items="center"
+        ),
+        # Se deja de utilizar hasta que se actualice la versión de next.js
+        # float_button(
+        #     icon=rx.image(src="/icons/donate.svg"),
+        #     href=const.COFFEE_URL
+        # ),
+        align="center",
+        padding_bottom=Size.VERY_BIG.value,
         padding_x=Size.BIG.value,
-        spacing="0",
-        color=TextColor.FOOTER.value,
-        align_items="center"
+        spacing=Spacing.ZERO.value,
+        color=TextColor.FOOTER.value
     )

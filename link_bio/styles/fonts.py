@@ -7,5 +7,6 @@ class Font(Enum):
 
 # una clase para el grosor de la fuente
 class FontWeight(Enum):
-    LIGHT = "300"
+    LIGHT = "400"
     MEDIUM = "500"
+    BOLD = "800"

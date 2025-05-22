@@ -4,8 +4,10 @@ from link_bio.routes import Route
 from link_bio.components.link_button import link_button # Importamos el componente 'link_button'
 from link_bio.components.title import title 
 from link_bio.styles.styles import Color, Spacing
+from link_bio.state.PageState import PageState
+from link_bio.components.featured_link import featured_link
 
-def index_links(featured: []) -> rx.Component:
+def index_links() -> rx.Component:
     return rx.vstack(
         title("Comunidad"),
         link_button(
@@ -33,21 +35,21 @@ def index_links(featured: []) -> rx.Component:
          "/icons/youtube.svg",
          const.YOUTUBE_SECONDARY_URL),
         
-        #rx.cond(
-            #len(featured) > 0,
-            #rx.vstack(
-                #title("Destacado"),
-                #rx.flex(
-                    #rx.foreach(
-                        #featured,
-                        
-                    #),
-                    #flex_direction=["column", "row"],
-                    #spacing=Spacing.DEFAULT.value
-                #),
-                #spacing=Spacing.DEFAULT.value
-            #)
-        #),
+        rx.cond(
+            PageState.featured_info,
+            rx.vstack(
+                title("Destacado"),
+                rx.flex(
+                    rx.foreach(
+                        PageState.featured_info,
+                        featured_link
+                    ),
+                    flex_direction=["column", "row"],
+                    spacing=Spacing.DEFAULT.value
+                ),
+                spacing=Spacing.DEFAULT.value
+            )
+        ),
         
         title("Recursos y más"),
         link_button(

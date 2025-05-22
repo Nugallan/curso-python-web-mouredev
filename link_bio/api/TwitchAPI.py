@@ -4,6 +4,7 @@ import requests # para las peticiones
 # pip install python-dotenv
 import dotenv # para leer el archivo .env
 import time
+from link_bio.model.Live import Live
 
 class TwitchAPI:
 
@@ -37,11 +38,11 @@ class TwitchAPI:
     def token_valid(self) -> bool:
         return time.time() < self.token_exp
 
-    def live(self, user: str) -> dict:
-        
+    def live(self, user: str) -> Live: # devuelve el objeto 'Live'
+
         if not self.token_valid():
             self.generate_token()
-            
+        
         response = requests.get(
             f"https://api.twitch.tv/helix/streams?user_login={user}",
             headers={ # headers para los credenciales de autenticación
@@ -52,6 +53,6 @@ class TwitchAPI:
         
         if response.status_code == 200 and response.json()["data"]:
             data = response.json()["data"]
-            return {"live":True, "title":data[0]["title"]} # tupla que devuelve True si el usuario está en vivo y el título de la transmisión devuelve True si el usuario está en vivo y el título de la transmisión
+            return Live(live=True, title=data[0]["title"]) # Caso en vivo
              
-        return {"live":False, "title": ""}
+        return Live(live=False, title="") # Caso offline

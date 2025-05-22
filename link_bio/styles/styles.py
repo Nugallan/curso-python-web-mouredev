@@ -6,11 +6,13 @@ from .fonts import Font, FontWeight # Importamos la clase 'Font' y lo nombramos 
 
 # Constantes
 MAX_WIDTH = "560px"
+FADEIN_ANIMATION = "animate__animated animate__fadeIn"
+BOUNCEIN_ANIMATION = "animate__animated animate__bounceIn" # Animación de https://animate.style
 
 STYLESHEETS = {
     # Buscando en google "load google font in css" en la API de Google fonts nos indica la URL para las fuentes
-    "https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap", # cargamos las 2 fuentes que queremos por 'wght@300;500&display=swap'
-    "https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap"
+    "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800&display=swap",
+    "https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css",
     "/css/styles.css" # cargamos el archivo css
 }
 
@@ -89,3 +91,12 @@ button_body_style = dict(
     font_size=Size.DEFAULT.value,
     color=TextColor.BODY.value
 )
+
+image_style = {
+    "border": f"1px solid {Color.CONTENT.value}",
+    "box_shadow": f"3px 3px 0px 0px {Color.SECONDARY.value}",
+    "_hover": {
+        "box_shadow": f"6px 6px 0px 0px {Color.CONTENT.value}",
+        "transform": "translate(-3px, -3px)"
+    }
+}
