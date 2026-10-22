@@ -24,11 +24,9 @@ fastapi_app.add_api_route("/live/{user}", live)
 
 # 'app': componente que va a generar una aplicación con Reflex
 app = rx.App(
-    stylesheets=styles.STYLESHEETS, # cargamos las fuentes que queremos
-    style=styles.BASE_STYLE, # uso la constante 'BASE_STYLE' del archivo de styles.py
+    stylesheets=styles.STYLESHEETS,  # cargamos las fuentes que queremos
     head_components=[
         rx.script(
-            # Todo esto para Google analytics
             src=f"https://www.googletagmanager.com/gtag/js?id={const.G_TAG}"),
         rx.script(
             f"""
@@ -38,8 +36,7 @@ app = rx.App(
                 gtag('config', '{const.G_TAG}');
             """),
     ],
-    api_transformer=fastapi_app # Asignamos la instancia de la API a nuestra app
-    
+    api_transformer=fastapi_app  # Asignamos la instancia de la API a nuestra app
 )
 
 # app.api.add_api_route("/hello", hello) # Deprecated (obsoleto)
